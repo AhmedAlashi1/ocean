@@ -10,402 +10,463 @@
 
 @endsection
 @section('content')
-      <div class="landing">
+
+    <main class="main-section">
         <div class="container">
-          <div class="text">
-            <h1 class="fw-bold">
-              Discover <br />
-              Digital <br />
-              art & <span class="ocean" id="text"></span>
-            </h1>
-            <p>
-              At Ocean, we dive deep into creativity,<br />
-              blending the art of design with the power of <br />
-              programming to craft digital solutions that sail your ideas toward
-              limitless success
-            </p>
-            <div class="stats">
-              <div class="stat">
-                <div class="number" id="stat1" data-target="300">0+</div>
-                <div class="label">
-                  Clients <br />
-                  Served
+            <div class="main-cont">
+                <div class="main-content">
+                    <h1 class="main-title">
+                        <span> Effect</span>
+                        - {!! LaravelLocalization::getCurrentLocale() == 'ar' ? $data['main_title_ar1'] :$data['main_title_en1'] !!}
+                    </h1>
+                    <p class="main-pargh">
+                        {{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['main_title_ar2'] :$data['main_title_en2']}}
+                    </p>
+                    <a href="{{route('front.contact')}}" class="main-btn">
+                        <span> {{__('front.Connect With Us')}} </span>
+                    </a>
+                    <div class="socials main-socials">
+                        <a href="{{$data['instagram']}}" target="_blank" class="social">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="{{$data['facebook']}}" target="_blank" class="social">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="{{$data['Linkedin']}}" target="_blank" class="social">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="{{$data['twitter']}}" target="_blank" class="social">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="{{$data['youtube']}}" target="_blank" class="social">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
-              </div>
-              <div class="stat">
-                <div class="number" id="stat2" data-target="200">0+</div>
-                <div class="label">
-                  Satisfied <br />
-                  End-Users
+                <div class="main-gif">
+                    <figure>
+                        <img loding="lazy" src="{{asset('frontEnd/images/main-img.gif')}}" alt="gif"/>
+                    </figure>
+                    <div class="socials main-socials">
+                        <a href="{{$data['instagram']}}" target="_blank" class="social">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="{{$data['facebook']}}" target="_blank" class="social">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="{{$data['Linkedin']}}" target="_blank" class="social">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="{{$data['twitter']}}" target="_blank" class="social">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="{{$data['youtube']}}" target="_blank" class="social">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
-              </div>
-              <div class="stat">
-                <div class="number" id="stat3" data-target="240">0+</div>
-                <div class="label">
-                  Projects <br />
-                  Delivered
-                </div>
-              </div>
             </div>
-            <button href="#" class="btn btn_all fs-6">
-              <i class="me-3 ri-send-plane-fill"></i>Connect With Us
-            </button>
-          </div>
-
-          <div class="image">
-            <img src="{{asset('frontEnd/image/shape.gif')}}" alt="" />
-          </div>
         </div>
-      </div>
-      <main>
-      <!-- Strat Section Service -->
-      <section id="services" class="service pt-5 pb-5">
-        <div class="container mb-5">
-          <div class="main-title text-center mt-5 position-relative">
-            <h5>Services</h5>
-            <h2 class="fw-bold">Our Services</h2>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4 mb-4 main-serv">
-              <div class="card_service">
-                <div class="card-body p-4 mb">
-                  <div class="icon mb-3">
-                    <i class="ri-brush-line fs-3"></i>
-                  </div>
-                  <h5 class="card-title fw-bold">Graphic Design</h5>
-                  <p class="card-text">
-                    We specialize in creating <br />
-                    impactful social media designs <br />
-                    and unique branding to elevate <br />
-                    your presence
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 mb-4 main-serv">
-              <div class="card_service">
-                <div class="card-body p-4 mb">
-                  <div class="icon mb-3"><i class="ri-code-fill fs-3"></i></div>
-                  <h5 class="card-title fw-bold">Website</h5>
-                  <p class="card-text">
-                    We build dynamic, custom <br />
-                    websites with the latest <br />
-                    technologies to ensure high <br />
-                    performance
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4 main-serv">
-              <div class="card_service">
-                <div class="card-body p-4 mb">
-                  <div class="icon mb-3">
-                    <i class="ri-smartphone-line fs-3"></i>
-                  </div>
-                  <h5 class="card-title fw-bold">Applications</h5>
-                  <p class="card-text">
-                    We develop effective, seamless <br />
-                    applications, delivering the <br />
-                    project fully ready for immediate <br />
-                    deployment
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4 main-serv">
-              <div class="card_service">
-                <div class="card-body p-4 mb">
-                  <div class="icon mb-3">
-                    <i class="ri-video-on-line fs-3"></i>
-                  </div>
-                  <h5 class="card-title fw-bold">Motion Graphics</h5>
-                  <p class="card-text">
-                    We create captivating <br />
-                    motion graphics that bring <br />
-                    your ideas to life with <br />
-                    creativity
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4 main-serv">
-              <div class="card_service">
-                <div class="card-body p-4 mb">
-                  <div class="icon mb-3">
-                    <i class="ri-bank-card-2-line fs-3"></i>
-                  </div>
-                  <h5 class="card-title fw-bold">Digital Marketing</h5>
-                  <p class="card-text">
-                    We provide effective digital <br />
-                    marketing strategies to enhance <br />
-                    your reach and <br />
-                    achieve goals
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4 main-serv">
-              <div class="card_service">
-                <div class="card-body p-4 mb">
-                  <div class="icon mb-3">
-                    <i class="ri-building-2-line fs-3"></i>
-                  </div>
-                  <h5 class="card-title fw-bold">Architecture</h5>
-                  <p class="card-text">
-                    We deliver meticulous <br />
-                    architectural designs, providing <br />
-                    blueprints and resources to ensure professional execution
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- End Section Service -->
-
-      <!-- Start Section About -->
-      <section class="about-us-section container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <img
-              src="{{asset('frontEnd/image/space-man.png')}}"
-              alt="Astronaut in space"
-              class="astronaut-img-1 img-fluid"
-            />
-          </div>
-          <div class="col-lg-6 text-start">
-            <h5>Services</h5>
-            <h2 class="about-us-title">
-              <span class="ocean">Ocean:</span> Where Digital Transformations
-              Begin
-            </h2>
-            <p>
-              Ocean is a digital agency specializing in web programming, motion
-              design, video editing, and digital marketing. We combine
-              creativity and technology to help businesses grow and succeed
-              online. Our mission is to deliver high-quality, tailored solutions
-              that meet your unique needs.
-            </p>
-            <button class="btn_all">About us</button>
-          </div>
-        </div>
-      </section>
-      <!-- End Section About -->
-
-      <!-- Start Section Portfolio -->
-          <section class="portfolios" id="portfolio">
-              <div class="main-title text-center mt-5 mb-5 position-relative">
-                  <h5>Our Portfolios</h5>
-                  <h2 class="fw-bold">Some recent work</h2>
-              </div>
-              <div class="category">
-                  <button data-filter="all" class="text-decoration-none">All Projects</button>
-                  <button data-filter=".category-a" class="text-decoration-none">Applications</button>
-                  <button data-filter=".category-b" class="text-decoration-none">Website</button>
-                  <button data-filter=".category-c" class="text-decoration-none">Design</button>
-                  <button data-filter=".category-d" class="text-decoration-none">Content</button>
-                  <button data-filter=".category-e" class="text-decoration-none">Motion graphics</button>
-              </div>
-
-              <div class="portfolio_image">
-                  <div class="portfolio_img portfolio1 mix category-b">
-                      <img src="{{ asset('frontEnd/image/portfolio/portfolio1.png') }}" alt="Portfolio 1" />
-                  </div>
-
-                  <div class="portfolio_img portfolio2 mix category-a">
-                      <img src="{{ asset('frontEnd/image/portfolio/portfolio2.png') }}" alt="Portfolio 2" />
-                  </div>
-
-                  <div class="portfolio_img portfolio3 mix category-a">
-                      <img src="{{ asset('frontEnd/image/portfolio/portfolio3.png') }}" alt="Portfolio 3" />
-                  </div>
-
-                  <div class="portfolio_img portfolio4 mix category-c category-d">
-                      <img src="{{ asset('frontEnd/image/portfolio/portfolio4.png') }}" alt="Portfolio 4" />
-                  </div>
-
-                  <div class="portfolio_img portfolio5 mix">
-                      <img src="{{ asset('frontEnd/image/portfolio/portfolio5.png') }}" alt="Portfolio 5" />
-                  </div>
-
-                  <div class="portfolio_img portfolio6 mix category-c">
-                      <img src="{{ asset('frontEnd/image/portfolio/portfolio6.png') }}" alt="Portfolio 6" />
-                  </div>
-              </div>
-          </section>
-
-          <!-- End Section Portfolio -->
-
-      <!-- Start Section How It Work -->
-          <section class="Work pt-5 pb-5">
-              <div class="container">
-                  <div class="main-title text-center mt-5 mb-5 position-relative">
-                      <h5 class="mb-4">Our Process</h5>
-                      <h2 class="fw-bold mb-5">How it works</h2>
-                  </div>
-
-                  <div class="row">
-                      <div class="col-md-4 mb-4">
-                          <div class="card body-work bg-black">
-                              <div class="card-body p-4 mb">
-                                  <div class="icon-work mb-3 rounded-4 fs-3">
-                                      <img src="{{ asset('frontEnd/image/vector1.png') }}" alt="Discovery Icon">
-                                  </div>
-                                  <h5 class="card-work fw-bold">Discovery</h5>
-                                  <p class="text-work">
-                                      We thoroughly analyze your <br />
-                                      business goals, audience, and challenges to gain insights
-                                      and create a tailored strategy that aligns with your vision.
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-
-                      <div class="col-md-4 mb-4">
-                          <div class="card body-work bg-black active">
-                              <div class="card-body p-4 mb">
-                                  <div class="icon-work mb-3 rounded-4 fs-3">
-                                      <img src="{{ asset('frontEnd/image/vector2.png') }}" alt="Plan Icon">
-                                  </div>
-                                  <h5 class="card-work fw-bold">Plan</h5>
-                                  <p class="text-work">
-                                      We develop a strategic roadmap based on our insights,
-                                      outlining clear objectives, actionable steps, and timelines
-                                      to achieve your goals effectively.
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-
-                      <div class="col-md-4 mb-4">
-                          <div class="card body-work bg-black">
-                              <div class="card-body p-4 mb">
-                                  <div class="icon-work mb-3 rounded-4 fs-3">
-                                      <img src="{{ asset('frontEnd/image/vector3.png') }}" alt="Execute Icon">
-                                  </div>
-                                  <h5 class="card-work fw-bold">Execute</h5>
-                                  <p class="text-work">
-                                      We implement the strategy <br />
-                                      with precision, managing each <br />
-                                      detail to ensure smooth execution <br />
-                                      and achieve the desired <br />
-                                      results.
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-      <!-- End Section How It Work -->
-
-      <!-- Start Section New&Article -->
-          <section class="latest-posts pt-5 pb-5">
-              <div class="container">
-                  <div class="main-title text-center mt-5 mb-5 position-relative">
-                      <h5 class="mb-4">LATEST POSTS</h5>
-                      <h2 class="fw-bold mb-5">News & Articles</h2>
-                  </div>
-
-                  <div class="row">
-                      <div class="col-md-4 mb-4">
-                          <div class="post-card bg-black">
-                              <img
-                                  src="{{ asset('frontEnd/image/posts/Posts1.png') }}"
-                                  class="post-card-img"
-                                  alt="Post 1"
-                              />
-                              <div class="post-card-body">
-                                  <p class="post-text mt-4">
-                                      The Top Benefits of AI for Marketers, State of AI Data
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-
-                      <div class="col-md-4 mb-4">
-                          <div class="post-card bg-black">
-                              <img
-                                  src="{{ asset('frontEnd/image/posts/Posts2.png') }}"
-                                  class="post-card-img"
-                                  alt="Post 2"
-                              />
-                              <div class="post-card-body">
-                                  <p class="post-text mt-4">
-                                      AI Tools to Help You Grow Your AI Graphics Business
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-
-                      <div class="col-md-4 mb-4">
-                          <div class="post-card bg-black">
-                              <img
-                                  src="{{ asset('frontEnd/image/posts/Posts3.png') }}"
-                                  class="post-card-img"
-                                  alt="Post 3"
-                              />
-                              <div class="post-card-body">
-                                  <p class="post-text mt-4">
-                                      When Is the Best Time to Post on Instagram in 2023?
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-          <!-- End Section New&Article -->
-
-      <!-- logo carouse -->
-          <section class="logo-carousel">
-              <div class="container">
-                  <div class="logo-track">
-                      <img src="{{ asset('frontEnd/image/tape/icon1.png') }}" alt="Logo 1" />
-                      <img src="{{ asset('frontEnd/image/tape/icon2.png') }}" alt="Logo 2" />
-                      <img src="{{ asset('frontEnd/image/tape/icon3.png') }}" alt="Logo 3" />
-                      <img src="{{ asset('frontEnd/image/tape/icon4.png') }}" alt="Logo 4" />
-                      <img src="{{ asset('frontEnd/image/tape/icon5.png') }}" alt="Logo 5" />
-                      <!-- تكرار الصور لضمان التدفق المستمر -->
-                      <img src="{{ asset('frontEnd/image/tape/icon1.png') }}" alt="Logo 1" />
-                      <img src="{{ asset('frontEnd/image/tape/icon2.png') }}" alt="Logo 2" />
-                      <img src="{{ asset('frontEnd/image/tape/icon3.png') }}" alt="Logo 3" />
-                      <img src="{{ asset('frontEnd/image/tape/icon4.png') }}" alt="Logo 4" />
-                      <img src="{{ asset('frontEnd/image/tape/icon5.png') }}" alt="Logo 5" />
-                  </div>
-              </div>
-          </section>
-
-          <!-- End logo carouse -->
-
-      <!-- form section -->
-          <section class="digest-section d-flex align-items-center justify-content-center">
-              <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center">
-                  <div class="astronaut-img mb-4 mb-md-0">
-                      <img src="{{ asset('frontEnd/image/space-man-nbg.png') }}" alt="Astronaut" />
-                  </div>
-                  <div class="digest-content text-center text-md-start">
-                      <h2 class="mb-5">Join our weekly digest</h2>
-                      <form class="input-group">
-                          <input
-                              type="email"
-                              class="form-control"
-                              placeholder="Enter Your Mail..."
-                              required
-                          />
-                          <button type="submit" class="btn btn-primary">GET STARTED</button>
-                      </form>
-                  </div>
-              </div>
-          </section>
-
-          <!-- End form section -->
     </main>
+    <!-- End main -->
+    <!-- Start services -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-head">{{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['service_title_ar'] :$data['service_title_en']}}</h2>
+            <p class="section-pargh">
+                {{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['service_title_desc_ar'] :$data['service_title_desc_en']}}
+            </p>
+            <div class="services-cont">
+                @foreach($services as $service)
+
+                    <div class="services-item">
+                        <a href="{{route('front.service.show', ['id'=> $service->id , 'name' => $service->name_en ])}}">
+                            <figure class="services-icon">
+                                <img loding="lazy" src="{{asset($service->image)}}" alt="icon"/>
+                            </figure>
+                            <h5 class="services-item-head">{{LaravelLocalization::getCurrentLocale()== 'ar' ? $service->name_ar :$service->name_en}}</h5>
+                            <p class="services-item-pargh">
+                                {{LaravelLocalization::getCurrentLocale()== 'ar' ? $service->desc_ar :$service->desc_en}}
+                            </p>
+                        </a>
+                    </div>
+
+                @endforeach
+
+            </div>
+        </div>
+    </section>
+    <!-- End services -->
+    <!-- Start partners -->
+    <section class="partners-section">
+        <div
+                class="partners-bg"
+                style="background-image: url({{asset('frontEnd/images/partners/partners-bg.png')}})"
+        ></div>
+        <div class="container">
+            <div class="partners-cont">
+                <div class="partners-content">
+                    <h2 class="partners-title" data-sal="slide-up" data-sal-delay="150">
+                        {{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['company_title_ar'] :$data['company_title_en']}}
+                    </h2>
+                    <p class="partners-pargh">
+                        {{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['company_desc_ar'] :$data['company_desc_en']}}
+                    </p>
+                </div>
+                <div class="partners-imgs">
+                    @foreach($companies as $companie)
+                        <figure class="partners-figure"
+                                data-sal="zoom-in"
+                                data-sal-delay="150">
+                            <img loding="lazy" src="{{asset($companie->image)}}" alt="partners-img"/>
+                        </figure>
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End partners -->
+    <!-- Start design -->
+    <section class="design-section">
+        <div class="container">
+            <div class="design-cont">
+                <figure class="design-img" data-sal="zoom-in" data-sal-delay="150">
+                    <img loding="lazy" src="{{asset($data['about_image'])}}" alt="design-img"/>
+                </figure>
+                <div class="design-content">
+                    <h2 class="design-head">
+                        {{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['about_title_ar'] :$data['about_title_en']}}
+                    </h2>
+                    <p class="design-pargh">
+                        {{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['about_desc_ar'] :$data['about_desc_en']}}
+                    </p>
+                    <a href="{{route('front.about')}}" class="custom-ancor">{{__('front.About us')}}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End design -->
+    <!-- Start process -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="process-head" data-sal="slide-left"
+                data-sal-delay="150">{{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['process_title_ar'] :$data['process_title_en']}}</h2>
+            <p class="process-pargh">
+                {{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['process_desc_ar'] :$data['process_desc_en']}}
+            </p>
+            <div class="process-graph">
+                @foreach($processes as $process)
+                    <div class="process-item">
+                        <span>{{LaravelLocalization::getCurrentLocale()== 'ar' ? $process->name_ar :$process->name_en}}</span>
+
+                        <figure>
+                            <img loding="lazy" src="{{asset($process->image)}}" alt="icon"/>
+                        </figure>
+                        <p class="process-item-pargh">
+                            {{LaravelLocalization::getCurrentLocale()== 'ar' ? $process->desc_ar :$process->desc_en}}
+                        </p>
+                    </div>
+                @endforeach
+
+                <div class="process-gif">
+                    <img
+                            loding="lazy"
+                            src="{{asset($data['process_image'])}}"
+                            alt="process-gif"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End process -->
+    <!-- Start work -->
+    <section class="work-section" id="work">
+        <div class="container">
+            <h2 class="section-head" data-sal="slide-left"
+                data-sal-delay="150">{{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['works_title_ar'] :$data['works_title_en']}}</h2>
+            <div class="wotk-cont">
+                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                    @foreach($services_work as $service_work)
+                        <li class="nav-item" role="presentation">
+                            <button
+                                    class="nav-link {{ $loop->first ? 'active' : ''}}"
+                                    id="pills-{{$service_work->id}}-tab"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#pills-{{$service_work->id}}"
+                                    type="button"
+                                    role="tab"
+                                    aria-controls="pills-{{$service_work->id}}"
+                                    aria-selected="true"
+                            >
+                                {{LaravelLocalization::getCurrentLocale()== 'ar' ? $service_work->name_ar :$service_work->name_en}}
+                            </button>
+                        </li>
+                    @endforeach
+
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    @foreach($services_work as $service_work)
+                        <div
+                                class="tab-pane fade {{ $loop->first ? 'show active' : ''}}"
+                                id="pills-{{$service_work->id}}"
+                                role="tabpanel"
+                                aria-labelledby="pills-{{$service_work->id}}-tab"
+                                tabindex="0"
+                        >
+
+                            <div class="work-tab">
+                                @foreach($service_work->works as $work)
+                                    <a href="{{route('front.service.show', ['id'=> $service_work->id , 'name' => $service_work->name_en])}}"
+                                       class="work-item">
+                                        <figure>
+                                            <img
+                                                    loding="lazy"
+                                                    src="{{asset($work->images->first()->image)}}"
+                                                    alt="work-sample"
+                                            />
+                                        </figure>
+                                        <div class="work-hover">
+                    <span>
+                        {{__('front.Details')}}
+                    </span>
+                                        </div>
+                                    </a>
+                                @endforeach
+
+                            </div>
+                        </div>
+                    @endforeach
+
+
+                    <div
+                            class="tab-pane fade"
+                            id="pills-marketing"
+                            role="tabpanel"
+                            aria-labelledby="pills-marketing-tab"
+                            tabindex="0"
+                    >
+
+                    </div>
+
+                    <div
+                            class="tab-pane fade"
+                            id="pills-design"
+                            role="tabpanel"
+                            aria-labelledby="pills-design-tab"
+                            tabindex="0"
+                    >
+                    </div>
+
+                    <div
+                            class="tab-pane fade"
+                            id="pills-programming"
+                            role="tabpanel"
+                            aria-labelledby="pills-programming-tab"
+                            tabindex="0"
+                    >
+                        ...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End work -->
+    <!-- End testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="testimonials-head"
+                data-sal="slide-left"
+                data-sal-delay="150">
+                {{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['satisfy_title_ar'] :$data['satisfy_title_en']}}
+
+            </h2>
+            <div class="testimonials-slider">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        @foreach($clients as $client)
+                            <div class="swiper-slide">
+                                <div class="testimonials-cont">
+                                    <div class="testimonials-img">
+                                        <figure>
+                                            <img src="{{ asset($client->image) }}" alt="client"/>
+                                        </figure>
+                                        <i class="fa-solid fa-quote-left"></i>
+                                    </div>
+                                    <div class="testimonials-title">{{LaravelLocalization::getCurrentLocale()== 'ar' ? $client->name_ar :$client->name_en}}</div>
+                                    <div class="testimonials-job">{{LaravelLocalization::getCurrentLocale()== 'ar' ? $client->nick_name_ar :$client->nick_name_en}}</div>
+                                    <p class="testimonials-pargh">
+                                        {{LaravelLocalization::getCurrentLocale()== 'ar' ? $client->content_ar :$client->content_en}}
+                                    </p>
+                                </div>
+                            </div>
+                        @endforeach
+
+
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <!-- End testimonials -->
+    <!-- Start contact  -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-head" data-sal="slide-left" data-sal-delay="150">
+                {{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['connect_title_ar'] :$data['connect_title_en']}}
+            </h2>
+            <p class="contact-pargh">
+                {{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['connect_desc_ar'] :$data['connect_desc_en']}}
+
+            </p>
+            <div class="contact-cont">
+                <div class="contact-content">
+                    <h4 class="contact-header">{{__('front.Let’s work together')}}</h4>
+                    <p class="contact-text">
+                        {{__('front.Fill up the form and our team will get back to you within 24 hours.')}}
+                    </p>
+                    <div class="contact-ancors">
+                        <a class="contact-item" href="tel:{{$data['phone']}}">
+                            <i class="fa-solid fa-mobile-button"></i>
+                            <span>{{$data['phone']}}</span>
+                        </a>
+                        <div class="contact-info">
+                            <a
+                                    class="contact-item"
+                                    href="mailto:{{$data['email_contact']}}"
+                                    style="text-decoration: underline"
+                            >
+                                <i class="fa-solid fa-envelope-open"></i>
+                                <span>{{$data['email_contact']}}</span>
+                            </a>
+                        </div>
+                        <div class="contact-info">
+                            <a class="contact-item" href="{{$data['website']}}">
+                                <i class="fa-light fa-globe"></i>
+                                <span>{{$data['website']}}</span>
+                            </a>
+                        </div>
+                        <div class="contact-info">
+                            <a class="contact-item" href="#">
+                                <i class="fa-light fa-location-dot"></i>
+                                <span>
+                      {!!$data['location']!!}
+                                    {{--                      20 Al Khail Road,<br />Business Bay Tower,<br />Dubai,--}}
+                                    {{--                    United Arab Emirates--}}
+                  </span>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="contact-info-head">{{__('front.Follow us')}}</h3>
+                    <div class="contact-social">
+                        <a href="{{$data['Linkedin']}}">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="{{$data['instagram']}}">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="{{$data['facebook']}}">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="{{$data['twitter']}}">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <form id="contactForm">
+                    @csrf
+                    <div class="contact-form">
+                        <div class="form-group" ng-class="{'not-empty': userName.length}">
+                            <input type="text" class="form-control" name="first-name" value="{{ old('first-name') }}"
+                                   id="user" ng-model="userName" placeholder=" "/>
+                            <label for="user" class="animated-label">{{ __('front.First Name') }}</label>
+                            <span id="first-name-error" class="col-form-label-sm text-danger"></span>
+                        </div>
+                        <div class="form-group" ng-class="{'not-empty': LastName.length}">
+                            <input type="text" class="form-control" name="last-name" value="{{ old('last-name') }}"
+                                   id="LastName" ng-model="LastName" placeholder=" " required/>
+                            <label for="LastName" class="animated-label">{{ __('front.Last Name') }}</label>
+                            <span id="last-name-error" class="col-form-label-sm text-danger"></span>
+                        </div>
+                        <div class="form-group" ng-class="{'not-empty': Mail.length}">
+                            <input type="email" class="form-control" name="email" value="{{ old('email') }}" required
+                                   id="Mail" ng-model="Mail" placeholder=" "/>
+                            <label for="Mail" class="animated-label">{{ __('front.Mail') }}</label>
+                            <span id="email-error" class="col-form-label-sm text-danger"></span>
+                        </div>
+                        <div class="form-group" ng-class="{'not-empty': Phone.length}">
+                            <input type="tel" class="form-control" name="phone" value="{{ old('phone') }}"
+                                   id="Phone" ng-model="Phone" placeholder=" " required/>
+                            <label for="Phone" class="animated-label">{{ __('front.Phone') }}</label>
+                            <span id="phone-error" class="col-form-label-sm text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group main-check">
+                        <label class="main-check-label">{{ __('front.What service do you need?') }}</label>
+                        <div class="check-group">
+                            @foreach(\App\Models\Service::all() as $service)
+                                <div class="check-width">
+                                    <label class="check-label" style="font-size:17px">
+                                        <input type="checkbox" name="service[]"
+                                               @if($service->id == old('service')) checked
+                                               @endif value="{{ $service->id }}"/>
+                                        <span class="checkmark"></span>
+                                        <span class="check-text">{{ LaravelLocalization::getCurrentLocale() == 'ar' ? $service->name_ar : $service->name_en }}</span>
+                                    </label>
+                                </div>
+                            @endforeach
+                            <span id="service-error" class="col-form-label-sm text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">{{ __('front.Message') }}</label>
+                        <input type="text" class="form-input" name="message" value="{{ old('message') }}"
+                               placeholder="{{ __('front.Write your message...') }}" required/>
+                        <span id="message-error" class="col-form-label-sm text-danger"></span>
+                    </div>
+                    <button type="submit" class="submit-btn">{{ __('front.Send Message') }}</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- End contact  -->
+    <!-- Start faq  -->
+    <section class="faq-section" id="FAQs">
+        <div class="container">
+            <h2 class="section-head" data-sal="slide-up" data-sal-delay="150">
+                {{LaravelLocalization::getCurrentLocale() == 'ar' ? $data['questions_title_ar'] :$data['questions_title_en']}}
+            </h2>
+            <div class="gruop-collase">
+                {{--            color_toggle inactive--}}
+                @foreach($questions as $question)
+                    <div class="collapse_parant">
+                        <div class="group_collapse">
+                            <button class="btn_collapse_ {{ $loop->first ? 'color_toggle inactive' : '' }} ">
+                                <span>{{LaravelLocalization::getCurrentLocale()== 'ar' ? $question->question_ar :$question->question_en}}</span>
+                                <div class="icon-wrapper {{ $loop->first ? 'is-active' : '' }}">
+                                    <i class="fa-solid fa-arrow-down-right"></i>
+                                </div>
+                            </button>
+                            <div class="toggle_collapse  {{ $loop->first ? 'open-collapse' : '' }}">
+                                {{LaravelLocalization::getCurrentLocale()== 'ar' ? $question->answer_ar :$question->answer_en}}
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+
+                <div class="collapse_parant">
+                    <div class="faq-item">
+                        <h3>{{__('front.Do You Have Querries?')}}</h3>
+                        <a href="#" class="faq-ancor">{{__('front.Get In Touch')}}</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 @endsection
 @section('scripts')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -470,5 +531,3 @@
         });
     </script>
 @endsection
-
-

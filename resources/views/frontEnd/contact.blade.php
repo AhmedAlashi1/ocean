@@ -1,273 +1,196 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/all.min.css" />
-    <!-- remix icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"
-    />
-    <!-- css file -->
-    <link rel="stylesheet" href="css/contact.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- add website logo -->
-    <link rel="icon" href="image/logo - title.png" />
-    <title>Contact</title>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg">
-        <div
-          class="container-fluid d-flex align-items-center justify-content-between"
-        >
-          <img src="image/logo.png" alt="Logo" class="me-5" />
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse justify-content-center"
-            id="navbarNav"
-          >
-            <div class="nav_back">
-              <ul class="navbar-nav mb-lg-0 d-flex align-items-center">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html">Service</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="proj.html">Projects</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="work.html">How it works</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="blog.html">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="contact.html">Contact</a>
-                </li>
-              </ul>
+@extends('frontEnd.layouts.master')
+@php
+    $data = \App\Models\Setting::pluck('value', 'key_id')->toArray();
+@endphp
+@section('title',App::getLocale() == 'ar' ? $data['meta_title_ar_contact'] :$data['meta_title_en_contact'] )
+@section('description',App::getLocale() == 'ar' ? $data['meta_desc_ar_contact'] :$data['meta_desc_en_contact'] )
+@section('css')
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+
+@endsection
+@section('content')
+
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="page-title">
+                {{App::getLocale() == 'ar' ? $data['connect_title_ar'] :$data['connect_title_en']}}
+
+            </h2>
+            <p class="contact-pargh">
+                {{App::getLocale() == 'ar' ? $data['connect_desc_ar'] :$data['connect_desc_en']}}
+            </p>
+            <div class="contact-cont">
+                <div class="contact-content">
+                    <h4 class="contact-header">{{__('front.Let’s work together')}}</h4>
+                    <p class="contact-text">
+                        {{__('front.Fill up the form and our team will get back to you within 24 hours.')}}
+                    </p>
+                    <div class="contact-ancors">
+                        <a class="contact-item" href="tel:{{$data['phone']}}">
+                            <i class="fa-solid fa-mobile-button"></i>
+                            <span>{{$data['phone']}}</span>
+                        </a>
+                        <div class="contact-info">
+                            <a
+                                    class="contact-item"
+                                    href="mailto:{{$data['email_contact']}}"
+                                    style="text-decoration: underline"
+                            >
+                                <i class="fa-solid fa-envelope-open"></i>
+                                <span>{{$data['email_contact']}}</span>
+                            </a>
+                        </div>
+                        <div class="contact-info">
+                            <a class="contact-item" href="{{$data['website']}}">
+                                <i class="fa-light fa-globe"></i>
+                                <span>{{$data['website']}}</span>
+                            </a>
+                        </div>
+                        <div class="contact-info">
+                            <a class="contact-item" href="#">
+                                <i class="fa-light fa-location-dot"></i>
+                                <span>
+                      {!!$data['location']!!}
+                                    {{--                      20 Al Khail Road,<br />Business Bay Tower,<br />Dubai,--}}
+                                    {{--                    United Arab Emirates--}}
+                  </span>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="contact-info-head">{{__('front.Follow us')}}</h3>
+                    <div class="contact-social">
+                        <a href="{{$data['Linkedin']}}">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="{{$data['instagram']}}">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="{{$data['facebook']}}">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="{{$data['twitter']}}">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <form id="contactForm">
+                    @csrf
+                    <div class="contact-form">
+                        <div class="form-group" ng-class="{'not-empty': userName.length}">
+                            <input type="text" class="form-control" name="first-name" value="{{ old('first-name') }}"
+                                   id="user" ng-model="userName" placeholder=" "/>
+                            <label for="user" class="animated-label">{{ __('front.First Name') }}</label>
+                            <span id="first-name-error" class="col-form-label-sm text-danger"></span>
+                        </div>
+                        <div class="form-group" ng-class="{'not-empty': LastName.length}">
+                            <input type="text" class="form-control" name="last-name" value="{{ old('last-name') }}"
+                                   id="LastName" ng-model="LastName" placeholder=" " required/>
+                            <label for="LastName" class="animated-label">{{ __('front.Last Name') }}</label>
+                            <span id="last-name-error" class="col-form-label-sm text-danger"></span>
+                        </div>
+                        <div class="form-group" ng-class="{'not-empty': Mail.length}">
+                            <input type="email" class="form-control" name="email" value="{{ old('email') }}" required
+                                   id="Mail" ng-model="Mail" placeholder=" "/>
+                            <label for="Mail" class="animated-label">{{ __('front.Mail') }}</label>
+                            <span id="email-error" class="col-form-label-sm text-danger"></span>
+                        </div>
+                        <div class="form-group" ng-class="{'not-empty': Phone.length}">
+                            <input type="tel" class="form-control" name="phone" value="{{ old('phone') }}"
+                                   id="Phone" ng-model="Phone" placeholder=" " required/>
+                            <label for="Phone" class="animated-label">{{ __('front.Phone') }}</label>
+                            <span id="phone-error" class="col-form-label-sm text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group main-check">
+                        <label class="main-check-label">{{ __('front.What service do you need?') }}</label>
+                        <div class="check-group">
+                            @foreach(\App\Models\Service::all() as $service)
+                                <div class="check-width">
+                                    <label class="check-label" style="font-size:17px">
+                                        <input type="checkbox" name="service[]"
+                                               @if($service->id == old('service')) checked
+                                               @endif value="{{ $service->id }}"/>
+                                        <span class="checkmark"></span>
+                                        <span class="check-text">{{ App::getLocale() == 'ar' ? $service->name_ar : $service->name_en }}</span>
+                                    </label>
+                                </div>
+                            @endforeach
+                            <span id="service-error" class="col-form-label-sm text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">{{ __('front.Message') }}</label>
+                        <input type="text" class="form-input" name="message" value="{{ old('message') }}"
+                               placeholder="{{ __('front.Write your message...') }}" required/>
+                        <span id="message-error" class="col-form-label-sm text-danger"></span>
+                    </div>
+                    <button type="submit" class="submit-btn">{{ __('front.Send Message') }}</button>
+                </form>
             </div>
-            <button href="#" class="btn connect ms-5 fw-bold fs-6">
-              Connect
-            </button>
-          </div>
         </div>
-      </nav>
-      <!-- End navbar -->
-    </header>
-    <!-- End header -->
+    </section>
 
-    <main>
-      <section
-        class="contact-section d-flex align-items-center justify-content-center"
-      >
-        <div class="text-center">
-          <h3 class="text-cont mb-3">Contact us</h3>
-          <p>
-            Reach out to us, and let's build a world full of creativity together
-            <br />
-            with <span class="ocean">Ocean</span> – where innovative programming
-            meets stunning design!
-          </p>
-        </div>
-      </section>
-
-      <div class="container form-container mt-0">
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <div class="form-box">
-              <h2>
-                Fill up the form and our Team will get back to you within 24
-                hours.
-              </h2>
-              <p>
-                We’d love to hear from you! Whether you have questions, need
-                support, or want to discuss a potential project, feel free to
-                reach out to us through any of the following methods:
-              </p>
-              <form>
-                <div class="row mb-3">
-                  <div class="col">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Last Name"
-                    />
-                  </div>
-                  <div class="col">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="First Name"
-                    />
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Email"
-                  />
-                </div>
-                <div class="mb-3">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Phone Number"
-                  />
-                </div>
-                <div class="mb-3">
-                  <textarea
-                    class="form-control"
-                    rows="4"
-                    placeholder="Message"
-                  ></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </div>
-          <div class="col-md-6 image-container">
-            <img src="image/Image box.png" alt="Astronaut" />
-          </div>
-        </div>
-      </div>
-      <!-- End form section -->
-    </main>
-    <!-- End Main -->
-
-    <!-- footer section -->
-    <footer class="footer-section">
-      <div
-        class="container d-flex flex-column flex-md-row justify-content-between align-items-start"
-      >
-        <!-- Logo and Description -->
-        <div class="footer-logo">
-          <img src="image/logo.png" alt="Ocean Logo" class="mb-4" />
-          <p class="mb-4">
-            Ocean. Innovating Digital <br />
-            Solutions. All Rights Reserved
-          </p>
-          <p>Join our community</p>
-          <div class="social-icons mt-2">
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-
-        <!-- Explore Links -->
-        <div class="footer-links">
-          <h4 class="space_mono">Explore</h4>
-          <ul class="ul-footer">
-            <li><a href="#">PROJECTS</a></li>
-            <li><a href="#">How it works</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-
-        <!-- Newsletter -->
-        <div class="footer-newsletter">
-          <h4 class="space_mono">Join Our Weekly Digest</h4>
-          <p class="text-foot-p">
-            Get exclusive promotions & updates <br />
-            straight to your inbox.
-          </p>
-          <form class="input-group-2">
-            <input
-              type="email"
-              class="form-control-2"
-              placeholder="Enter your email here"
-              required
-            />
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-          </form>
-        </div>
-      </div>
-      <div class="footer-bottom text-center">
-        <p class="mt-2">
-          © <span class="ocean-footer">Ocean</span> Market. Use this template
-          freely.
-        </p>
-      </div>
-    </footer>
-    <!-- End footer -->
-
-    <a
-      href="https://wa.me/970567463404"
-      target="_blank"
-      class="whatsapp-button"
-      id="whatsappButton"
-    >
-      <img src="image/whatsapp.png" alt="WhatsApp" />
-    </a>
+@endsection
+@section('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // اختيار جميع العناصر في الصفحة
-        const elements = document.querySelectorAll("*");
+        $('#contactForm').on('submit', function (e) {
+            e.preventDefault();
 
-        // إضافة كلاس "fade-in" لجميع العناصر
-        elements.forEach((element) => {
-          element.classList.add("fade-in");
+            let formData = new FormData(this);
+
+            $.ajax({
+                url: "{{ route('front.customer.store') }}",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                headers: {
+                    "X-CSRF-TOKEN": $('input[name="_token"]').val(),
+                },
+                success: function (data) {
+                    if (data.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: '{{__('front.Sent successfully')}}',
+                            text: '{{__('front.Thank you for contacting us!')}}',
+                            // confirmButtonText: 'موافق',
+                            timer: 3000, // 3 ثواني
+                            timerProgressBar: true,
+                            showConfirmButton: false // إخفاء زر "موافق"
+                        });
+
+                        $('#contactForm')[0].reset();
+
+                        // Add '/thank-you' to the current URL without refreshing the page
+                        const currentUrl = window.location.href;
+                        const newUrl = currentUrl.endsWith('/') ? `${currentUrl}thank-you` : `${currentUrl}/thank-you`;
+
+                        // Update the browser's URL using pushState
+                        history.pushState(null, '', newUrl);
+                    } else {
+                        alert("An error occurred. Please try again.");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    if (xhr.status === 422) { // خطأ التحقق من صحة البيانات
+                        let errors = xhr.responseJSON.errors;
+
+                        // تنظيف الأخطاء السابقة
+                        $('.text-danger').text('');
+
+                        // عرض الأخطاء الجديدة
+                        for (let field in errors) {
+                            $(`#${field}-error`).text(errors[field][0]);
+                        }
+                    } else {
+                        console.error('Error:', error);
+                    }
+                    // console.error('Error:', error);
+                }
+            });
         });
-
-        // التحقق من وجود عناصر مرئية عند تحميل الصفحة
-        window.addEventListener("scroll", function () {
-          elements.forEach(function (element) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top <= window.innerHeight) {
-              element.classList.add("visible");
-            }
-          });
-        });
-
-        // التحقق من الحالة الأولية عند تحميل الصفحة
-        elements.forEach(function (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= window.innerHeight) {
-            element.classList.add("visible");
-          }
-        });
-      });
-
-      document.addEventListener("scroll", function () {
-        const button = document.getElementById("whatsappButton");
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        button.style.top = `${scrollTop + window.innerHeight / 2}px`;
-      });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-    <!-- typed js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"></script>
-    <!-- swiper slider js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/all.min.js"></script>
-    <script src="js/script.js"></script>
-  </body>
-</html>
+@endsection
