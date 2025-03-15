@@ -19,8 +19,11 @@ class SetLanguage
         // تحقق من وجود لغة محددة في الجلسة
         if (session()->has('locale')) {
             App::setLocale(session('locale'));
+        } else {
+            // إذا لم تكن هناك جلسة، استخدم الإنجليزية افتراضيًا
+            App::setLocale('en');
+            session(['locale' => 'en']); // ضبط الجلسة على 'en'
         }
-
         return $next($request);
     }
 }
