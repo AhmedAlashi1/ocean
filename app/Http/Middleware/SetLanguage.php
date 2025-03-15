@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 class SetLanguage
 {
@@ -17,13 +18,12 @@ class SetLanguage
     public function handle($request, Closure $next)
     {
         // تحقق من وجود لغة محددة في الجلسة
-        if (session()->has('locale')) {
-            App::setLocale(session('locale'));
-        } else {
-            // إذا لم تكن هناك جلسة، استخدم الإنجليزية افتراضيًا
-            App::setLocale('en');
-            session(['locale' => 'en']); // ضبط الجلسة على 'en'
+        if (!Session::has('locale')) {
+            Session::put('locale', 'en'); // اللغة الافتراضية الإنجليزية
         }
+
+        App::setLocale(Session::get('locale'));
+
         return $next($request);
     }
 }

@@ -57,7 +57,7 @@ Route::group(
 
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale().'/',
+        'prefix' => LaravelLocalization::setLocale() ?: 'en'.'/',
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect','localeViewPath' ]
     ], function(){
     Route::get('/', [HomeController::class,'index'])->name('front.index');
