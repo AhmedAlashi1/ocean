@@ -7,6 +7,7 @@ use App\Models\Service;
 use App\Observers\BlogObserver;
 use App\Observers\ServiceObserver;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Yajra\DataTables\Html\Builder;
 use Illuminate\Support\Facades\Session;
@@ -32,5 +33,6 @@ class AppServiceProvider extends ServiceProvider
         Blog::observe(BlogObserver::class);
         Service::observe(ServiceObserver::class);
         Builder::useVite();
+        Schema::defaultStringLength(191);
     }
 }
